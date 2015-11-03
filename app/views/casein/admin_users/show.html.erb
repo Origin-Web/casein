@@ -26,9 +26,14 @@
 				<%= casein_select f, f.object, :access_level, casein_get_access_level_array, {:casein_label => "Role"} %>
 			</div>
 			<div class="col-lg-6">
+			<%if @casein_admin_user.is_reseller? %>
+			<%= casein_text_field f, f.object, :apikey %>
 			</div>
 		</div>
 	<% end %>
+	
+
+	<%end%>
 
 	<p class="submits">
 	  	<%= link_to 'Cancel', casein_admin_users_path, :class => 'btn btn-mini btn-danger' %>

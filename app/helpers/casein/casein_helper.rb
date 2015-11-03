@@ -37,13 +37,15 @@ module Casein
         return "Administrator"
       when $CASEIN_USER_ACCESS_LEVEL_USER
   	    return "User"
-  	  else
+      when $CASEIN_USER_ACCESS_LEVEL_RESELLER
+        return "Reseller"
+      else
   	    return "Unknown"
   	  end
   	end
 
   	def casein_get_access_level_array
-  	  [["Administrator", $CASEIN_USER_ACCESS_LEVEL_ADMIN], ["User", $CASEIN_USER_ACCESS_LEVEL_USER]]
+  	  [["Administrator", $CASEIN_USER_ACCESS_LEVEL_ADMIN], ["User", $CASEIN_USER_ACCESS_LEVEL_USER], ["Reseller", $CASEIN_USER_ACCESS_LEVEL_RESELLER]]
   	end
 
     def casein_pagination_details objs

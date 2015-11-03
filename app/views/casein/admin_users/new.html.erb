@@ -25,9 +25,12 @@
   		<div class="col-lg-6">
 			<%= casein_select form, @casein_admin_user, :access_level, casein_get_access_level_array, {:casein_label => "Role"} %>
 		</div>
+
 		<div class="col-lg-6">
+		<%= casein_text_field form, @casein_admin_user, :apikey, placeholder: "Only for resellers!" %>
 		</div>
 	</div>
+
 
 	<div class="row">
   		<div class="col-lg-6">

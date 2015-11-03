@@ -2,6 +2,7 @@ include Casein::ConfigHelper
 
 $CASEIN_USER_ACCESS_LEVEL_ADMIN = 0
 $CASEIN_USER_ACCESS_LEVEL_USER = 10
+$CASEIN_USER_ACCESS_LEVEL_RESELLER = 1
 
 module Casein
   class AdminUser < ActiveRecord::Base
@@ -17,7 +18,7 @@ module Casein
     end
 
     attr_accessor :notify_of_new_password
-	 
+	  
     after_create :send_create_notification
     after_update :send_update_notification
     before_validation :check_time_zone
@@ -54,6 +55,10 @@ module Casein
   	def is_admin?
   	  access_level == $CASEIN_USER_ACCESS_LEVEL_ADMIN
   	end
+
+    def is_reseller?
+      access_level == $CASEIN_USER_ACCESS_LEVEL_RESELLER
+    end
   
   end
 end
